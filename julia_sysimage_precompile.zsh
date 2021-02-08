@@ -8,10 +8,7 @@ export PATH
 
 pushd ~/src/julia_precompile
 
-# Define the image
-julia --trace-compile=julia_sysimage_precompile_data.jl julia_sysimage_precompile_prep.jl 
-
 # Compile the image
-julia -e 'using PackageCompiler; PackageCompiler.create_sysimage([:Plots, :OhMyREPL, :DataFrames, :DataFramesMeta, :Chain, :Statistics]; sysimage_path="julia_plus.so", precompile_statements_file="julia_sysimage_precompile_data.jl");'
+julia -e 'using PackageCompiler; PackageCompiler.create_sysimage([:Plots, :OhMyREPL, :DataFrames, :DataFramesMeta, :Chain, :Statistics]; sysimage_path="julia_plus.so", precompile_execution_file="compiled_julia_test.jl");'
 
 popd

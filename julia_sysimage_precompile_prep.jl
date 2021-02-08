@@ -1,5 +1,7 @@
 import Pkg
 
+# Activate the local environment to ensure you don't pollute your main environment
+Pkg.activate(".")
 # Add the packages you want to precompile
 Pkg.add("PackageCompiler")
 Pkg.add("Plots")
@@ -7,14 +9,12 @@ Pkg.add("OhMyREPL")
 Pkg.add("DataFrames")
 Pkg.add("DataFramesMeta")
 Pkg.add("Chain")
-Pkg.add("Statistics")
 Pkg.update() # Make sure they're up to date.
 
 # Open them up
 using PackageCompiler
 using OhMyREPL
 using Plots
-using Statistics
 using DataFrames
 using DataFramesMeta
 using Chain

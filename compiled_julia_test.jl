@@ -1,7 +1,6 @@
 using PackageCompiler
 using OhMyREPL
 using Plots
-using Statistics
 using DataFrames
 using DataFramesMeta
 using Chain

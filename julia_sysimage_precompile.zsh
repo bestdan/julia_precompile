@@ -6,11 +6,9 @@ export PATH
 # If needed, testore default ahead of time to not re-use compiled version
 # julia -e 'using PackageCompiler; PackageCompiler.restore_default_sysimage();'
 
-cd ~/src/julia_precompile
-
-# Define the image
-julia --trace-compile=julia_sysimage_precompile_data.jl julia_sysimage_precompile_prep.jl 
+pushd ~/src/julia_precompile
 
 # Compile the image
-julia -e 'using PackageCompiler; PackageCompiler.create_sysimage([:Plots, :OhMyREPL, :DataFrames, :DataFramesMeta, :Chain, :Statistics]; sysimage_path="julia_plus.so", precompile_statements_file="julia_sysimage_precompile_data.jl");'
+julia -e 'using PackageCompiler; PackageCompiler.create_sysimage([:Plots, :OhMyREPL, :DataFrames, :DataFramesMeta, :Chain, :Statistics]; sysimage_path="julia_plus.so", precompile_execution_file="julia_sysimage_precompile_prep.jl");'
 
+popd
